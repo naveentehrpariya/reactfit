@@ -1,6 +1,5 @@
 {
   "name": "fit",
-  "homepage": "https://funnel.fit/init/booking/", 
   "version": "0.1.0",
   "private": true,
   "dependencies": {
