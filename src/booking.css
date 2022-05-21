@@ -1,0 +1,162 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+*{-webkit-text-size-adjust:none;text-size-adjust:none;}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;376;400;500;600;700;800;900&family=Radio+Canada:wght@300;400;500;600;700&display=swap');html,body{padding:0;margin:0;}
+body{font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-.01em;color:#1A1D1F;}
+/* main css */
+/* Chrome,Safari,Edge,Opera */
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+/* Firefox */
+input[type=number]{-moz-appearance:textfield;}
+body{overflow-x:hidden !important;overflow-y:auto !important;background:#1e2224;}
+.closePop{position:absolute !important;right:3px;top:5px;background:#ddddddad !important;padding:0 !important;min-width:40px !important;height:36px;z-index:2;}
+.classbtn.mainbtn{margin-top:15px;padding:9px 15px !important;height:auto;}
+.closePop svg{fill:#000;}
+.pageWrap{overflow:auto;background:#1e2224;display:block;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;}
+.grey-text{font-size:14px;font-weight:600;color:#6F767E;}
+.heading{font-size:48px;line-height:1;letter-spacing:-.03em;border-bottom:2px solid #272B30;color:#fff;}
+.border-bottom{border-bottom:2px solid #272B30;margin-bottom:32px;padding-bottom:32px;}
+.formBooking{max-width:400px;}
+.blue-text{margin-bottom:20px;font-size:14px;font-weight:600;line-height:1.71429;position:relative;padding-left:17px;color:#2A85FF;}
+.blue-text:after{content:"";height:8px;width:8px;background:#2A85FF;position:absolute;left:0;top:9px;border-radius:50%;}
+.formBooking .grey-text{margin-top:32px;}
+.grey-text span{color:#2A85FF;font-weight:600;}
+.field__input,.field__wrap.select-wrap .MuiFormControl-root.MuiFormControl-fullWidth{width:100%;height:48px;padding:0 10px;border-radius:12px;border:2px solid transparent;background:#F4F4F4;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;line-height:1.6;color:#1A1D1F;transition:all .2s;}
+.field__input,.field__wrap.select-wrap .MuiFormControl-root.MuiFormControl-fullWidth{border-color:#272B30;background:#272B30;color:#FCFCFC;}
+.field__input:focus{border:0;box-shadow:none;outline:none;}
+.field__wrap{margin-bottom:11px;}
+.field__wrap .Mui-selected{background-color:#383e45 !important;}
+.field__wrap fieldset.MuiOutlinedInput-notchedOutline{border:0 !important;}
+.field__wrap .MuiPaper-root.MuiPaper-elevation{background-color:#272b30 !important;}
+.field__wrap li.MuiMenuItem-root{color:#c2c2c2 !important;}
+.field__input,.field__wrap.select-wrap .MuiFormControl-root.MuiFormControl-fullWidth{padding-left:48px !important;border:0 !important;}
+.field__wrap .MuiInputLabel-root{padding-left:35px !important;color:#6e6e6e !important;font-weight:600 !important;margin-top:-3px !important;}
+body div{box-sizing:border-box !important;}
+#demo-simple-select{padding:14px 0;color:#fff;padding-left:49px;}
+.field__wrap.select-wrap .MuiFormControl-root.MuiFormControl-fullWidth{padding-left:0 !important;}
+.field__wrap .MuiFormLabel-filled{opacity:0;}
+.field__wrap .MuiSvgIcon-root{color:rgb(255 255 255 / 70%);}
+.mainbtn{cursor:pointer;display:inline-flex;justify-content:center;align-items:center;height:48px;padding:0 20px;background:#2A85FF;border-radius:12px;font-size:15px;font-weight:700;border:0;width:100%;line-height:1.6;text-align:center;color:#FCFCFC;transition:all .2s;}
+.field__wrap{position:relative;}
+.field__icon{position:absolute;top:0;bottom:0;display:flex;justify-content:center;align-items:center;width:48px;}
+.field__icon svg{fill:#6F767E;}
+.grey-bg{box-shadow:0 0 10px 8px #0001;border-radius:13px;background:#1e2224 !important;padding:25px;}
+.secTitle h2{position:relative;display:inline-block;padding-left:32px;font-size:20px;font-weight:600;line-height:1.6;letter-spacing:-.02em;color:#fff;}
+.secTitle:before{content:"";position:absolute;left:0;top:1px;width:16px;height:32px;border-radius:4px;background:#FFBC99;}
+.secTitle{position:relative;}
+.secTitle{border-bottom:1px solid #272B30;padding-bottom:25px;margin-bottom:20px;}
+.timeDateSelector{padding:25px 0;}
+.d-selector input{display:flex;min-height:68px;padding:25px 15px 12px 47px;border-radius:12px;border:2px solid #EFEFEF;cursor:pointer;transition:all .2s;border-color:#272B30;background:transparent;position:relative;width:100%;color:#FCFCFC;font-size:15px;letter-spacing:1px;font-weight:600;}
+.d-selector svg{fill:#6F767E;position:absolute;left:14px;top:16px;width:24px;height:24px;}
+.d-selector{position:relative;}
+.d-selector label{font-size:12px;font-weight:500;line-height:1;color:#6F767E;position:absolute;left:48px;top:15px;}
+.mb-2{margin-bottom:10px;}
+.d-selector input:focus{border-color:#2A85FF;outline:none;box-shadow:none;}
+.dateTimePicker{max-width:380px;}
+.react-datepicker{width:100%;border:0 !important;box-shadow:0 0 10px 8px #0001 !important;border-radius:8px !important;overflow:hidden;padding:15px !important;background-color:#1e2224 !important;}
+.react-datepicker__month-container{width:100%;border:0 !important;}
+.react-datepicker-popper{width:100% !important;}
+.react-datepicker__header{background:transparent !important;border:0 !important;}
+.react-datepicker__month{margin:0 !important;}
+.react-datepicker__current-month,.react-datepicker-time__header,.react-datepicker-year-header{color:#fff !important;}
+.react-datepicker__day-name,.react-datepicker__day,.react-datepicker__time-name{color:#d5d5d5 !important;padding:10px;width:40px !important;height:40px !important;border-radius:50% !important;line-height:24px !important;}
+.react-datepicker__day-names > div{background:#1c1c1c;border:2px solid #1e2224;padding:7px;}
+.react-datepicker__day-names{margin-top:14px;}
+.react-datepicker__navigation{top:15px !important;}
+.react-datepicker__day-names{margin-top:14px;}
+.react-datepicker__navigation{top:15px !important;}
+.react-datepicker__day--selected,.react-datepicker__day--in-selecting-range,.react-datepicker__day--in-range,.react-datepicker__month-text--selected,.react-datepicker__month-text--in-selecting-range,.react-datepicker__month-text--in-range,.react-datepicker__quarter-text--selected,.react-datepicker__quarter-text--in-selecting-range,.react-datepicker__quarter-text--in-range,.react-datepicker__year-text--selected,.react-datepicker__year-text--in-selecting-range,.react-datepicker__year-text--in-range{background:#2a85ff !important;}
+.react-datepicker__day:hover,.react-datepicker__month-text:hover,.react-datepicker__quarter-text:hover,.react-datepicker__year-text:hover{color:#616161 !important;}
+.react-datepicker__time-container{width:100% !important;}
+.react-datepicker__header--time > div{margin-right:auto;font-size:20px !important;font-weight:600;line-height:1.6;letter-spacing:-.02em;text-align:left !important;padding:0 !important;}
+.react-datepicker__header--time{padding:0 !important;padding-bottom:10px !important;}
+.react-datepicker__time-container .react-datepicker__time{background:transparent !IMPORTANT;}
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box{width:100% !important;}
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item{text-align:left !important;font-size:16px !important;color:#2a85ff !important;padding:12px 13px !important;display:block !important;height:auto !important;border-radius:4px !important;}
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item:hover{background:#2a85ff !important;color:#fff !important;}
+.react-datepicker__time-list::-webkit-scrollbar{width:4px;border-radius:10px;}
+.react-datepicker__time-list::-webkit-scrollbar-thumb{background:#3e4448;border-radius:10px;}
+.react-datepicker__time-list::-webkit-scrollbar-track{background:transparent;border-radius:10px;}
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected{color:white !important;}
+.thankyouPopup{text-align:center;max-width:420px;width:100%;}
+.thankyouPopup h2{font-size:20px;padding:6px 0;}
+.thankyouPopup h3{color:#2a85ff;font-size:22px;padding-bottom:5px;}
+.mainbtn.sm{font-size:12px;padding:9px !important;height:auto;border-radius:5px;}
+.mainbtn.sm{max-width:60px !important;margin:auto;}
+.thankyouPopup{padding:30px;}
+.thankyouBtn{margin-bottom:30px !important;}
+.mainbtn:hover{border-color:#000 !important;background:#000 !important;color:#fff !important;}
+.MuiDialog-paper.MuiDialog-paperScrollPaper{border-radius:12px !important;}
+.avilableSlot h2{font-size:15px;color:#6F767E;font-weight:400 !important;}
+.slot label{width:100% !important;background:#1e2224;border:1px solid #272b30;border-radius:4px;padding:11px;display:block;text-align:center;color:#e6e6e6;font-size:13px;}
+.slot{position:relative;flex:0 0 50%;overflow:hidden;padding:0px 5px;padding-top:10px;}
+.slot input{position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;opacity:0;}
+.slot input:checked + label{background:#2a85ff;color:#fff !important;}
+.slotList{display:flex;margin:0 -5px;flex-wrap:wrap;}
+.NotimeSlot{margin:10px 0;padding:15px;display:block;text-align:center;background:#232729;border-radius:3px;color:#ccc;font-size:13px;font-weight:300 !important;letter-spacing:1px;}
+.position-relative{position:relative;}
+.MuiModal-root.MuiPopover-root .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded{background:#25292e !important;}
+.MuiModal-root.MuiPopover-root .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded li{color:#ddd !important;}
+.pageWrap{padding:25px;}
+.grey-text strong{word-break:break-word;}
+.mainbtn{background:#2a85ff !important;color:#fff !important;}
+.dateSel{position:relative;} 
+.offerInfo{position:absolute;right:8px;top:16px;cursor:pointer;} 
+.offerInfo p{color:#3dcc4a;font-size:11px;margin-left:6px;} 
+.offerInfo svg{fill:#3dcc4a;} 
+.offerInfo > button{padding:11px;display: flex;align-items: center;width: auto !important;} 
+.MuiTooltip-popper > div{background:#000 !important;} 
+.MuiTooltip-popper > div{text-transform:capitalize !important;color:#fff !important;border:0 !important;margin-right:20px !important;} 
+.offerInfo svg {position: static; }  
+
+ 
+/* responisve */
+@media( max-width:767px){.sideBarwrap{width:100%;min-width:auto;}
+.pageWrap{width:100% !important;}
+.pageWrapper{display:block !important;width:100%;background:#1e2224;}
+a.logoWrap{position:static;}
+.mobileHeader{display:flex;align-items:center;justify-content:space-between;}
+.logoSide{width:100%;}
+.formBooking{margin:auto;}
+.logoSide > img{display:none;}
+.logoSide .heading{font-size:18px;font-weight:300 !important;}
+.logoSide ul.login__list{padding-top:10px;display:flex;justify-content:center;flex-wrap:wrap;}
+.logoSide ul.login__list li{margin:5px 0;margin-right:30px;}
+.pageWrap{width:100% !important;}
+.pageWrap{overflow:auto;background:#1e2224;display:block;width:100%;height:auto;display:flex;justify-content:center;padding:100px 25px !important;}
+}
+@media ( max-width:767px){.dateTimePicker{margin:auto;}
+.pageWrap{overflow:auto;background:#1e2224;display:block;width:100%;height:auto;display:flex;justify-content:center;padding:100px 25px !important;}
+.heading{font-size:37px;}
+.pageWrap{height:auto !important;overflow:visible !important;display:block;}
+.react-datepicker__day-name,.react-datepicker__day,.react-datepicker__time-name{color:#d5d5d5 !important;padding:10px;width:32px !important;height:32px !important;border-radius:50% !important;line-height:13px !important;font-size:11px;}
+.border-bottom{border-bottom:2px solid #272B30;margin-bottom:22px;padding-bottom:22px;}
+}
+@media( max-width:575px){.pageWrap{padding:50px 30px !important;}
+.MuiDialog-paper.MuiDialog-paperScrollPaper{margin:15px !important;}
+.Toastify__toast{margin:10px !important;}
+.login__list li{padding-left:23px !important;font-size:11px !important;}
+.login__list li:before{width:18px !important;height:18px !important;}
+.logoSide ul.login__list li{margin-right:12px !important;}
+}
+@media( max-width:400px){.react-datepicker{padding:0px !important;}
+.grey-bg{padding:15px;}
+.pageWrap{padding:0px !important;}
+.formBooking{padding:40px 25px;}
+.grey-bg{box-shadow:none !important;}
+.dateTimePicker.position-relative{max-width:100%;}
+}
+a.mainbtn.classbtn{font-weight:300;margin-top:20px;border-radius:7px;}
+.video .MuiPaper-root.MuiPaper-elevation{width:100%;}
+.video .MuiPaper-root.MuiPaper-elevation{width:100%;min-width:750px;}
+.video iframe{width:100%;height:440px;padding:0 15px;}
+.video iframe{padding:10px !important;}
+@media ( max-width:991px){.video .MuiPaper-root.MuiPaper-elevation{min-width:560px;}
+.video iframe{height:352px;}
+}
+@media( max-width:575px){.video .MuiPaper-root.MuiPaper-elevation{min-width:auto;}
+.video iframe{height:310px;}
+}
+@media( max-width:480px){.video iframe{height:230px;}
+}
+@media( max-width:420px){.video iframe{min-height:190px;}
+}

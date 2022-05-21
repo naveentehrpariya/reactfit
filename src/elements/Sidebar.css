@@ -1,0 +1,23 @@
+.pageWrapper{display:flex;}
+.sideBarwrap{background:#111315;padding:20px;min-width:360px;}
+.login__list li{position:relative;padding-left:36px;font-size:14px;font-weight:600;line-height:1.71429;color:#6F767E;}
+.login__list li:before{content:"";position:absolute;top:0;left:0;width:24px;height:24px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 1 1-16 0 8 8 0 0 1 8-8 7.98 7.98 0 0 1 5.942 2.644L11 13.586l-2.793-2.793a1 1 0 0 0-1.414 1.414L9.586 15a2 2 0 0 0 2.828 0l6.687-6.687C19.676 9.416 20 10.67 20 12z' fill='%2383bf6e'/%3E%3C/svg%3E") no-repeat 50% 50%/100% auto;}
+.listDisabled{filter:grayscale(1);}
+.logoSide img{width:100%;max-width:200px;margin:auto;display:table;}
+.sideBarwrap{display:flex;align-items:center;justify-content:center;}
+.logoSide .heading{border:0;font-size:30px;text-align:center;padding:20px 0;}
+.logoSide ul.login__list li{list-style:none;margin:15px 0;}
+.logoSide ul.login__list{margin:auto;display:table;}
+.logoWrap{position:absolute;top:20px;left:20px;max-width:52px;}
+.logoWrap img{width:100% !important;}
+@media( max-width:767px){
+    .sideBarwrap{width:100%;min-width:auto; display: block;}
+.logoWrap{position:static;}
+.mobileHeader{display:flex;align-items:center;justify-content:space-between;}
+.logoSide{width:100%;}
+.logoSide > img{display:none;}
+.logoSide .heading{font-size:18px;font-weight:300 !important;}
+.logoSide ul.login__list{padding-top:10px;display:flex;justify-content:center;flex-wrap:wrap;}
+.logoSide ul.login__list li{margin:5px 0;margin-right:30px;}
+}
+ 

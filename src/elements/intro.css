@@ -1,0 +1,44 @@
+.intro{background:#000;}
+.textWrap h2{color:#fff;font-size:41px;line-height:56px;}
+.introSec .row{margin:0 -20px;display:flex;align-items:center;}
+.intro{display:flex;font-family:'Radio Canada',sans-serif;align-items:center;}
+.introSec .col-md-6{padding:0 20px;flex:0 0 50%;}
+.landingBanner img{width:100%;max-width:100%;}
+.textWrap p{padding:20px 0;font-size:20px;color:#afafaf;}
+.textWrap span{color:#fff;display:block;font-weight:100;}
+.bookNow{padding:12px;background:#fff;display:block;max-width:170px;text-align:center;border-radius:6px;text-decoration:none;text-transform:uppercase;font-weight:500;color:#000;margin-top:15px;}
+.container{max-width:1060px;padding:0 20px;margin:auto;}
+.introTitle{padding-bottom:50px;font-size:36px;color:#fff;text-align:center;font-weight:200;}
+.headerFlex{display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px;}
+.introLogo img{max-width:61px;}
+.bookNow{margin:0;padding:12px 36px;font-size:14px;}
+.introLogo a{display:flex;align-items:center;}
+.introwrap{height:100vh;overflow:auto;background:#000;}
+.introSec{padding:20px 0;height:86vh;align-items:center;display:flex;}
+
+@media( max-width:1199px){
+.introSec .row{margin:0 !important;display:block;}
+.container{max-width:960px;}
+.textWrap{padding:40px 0 60px 0;text-align:center;}
+.textWrap a.bookNow{margin:auto;}
+.landingBanner{border-radius:16px;overflow:hidden;}
+}
+
+@media( max-width:991px){
+.container{max-width:740px;}
+.introTitle{padding-bottom:40px;font-size:31px;}
+.textWrap h2{font-size:36px;line-height:52px;}
+}
+
+@media(max-width:575px){
+.introTitle{font-size:31px !important;line-height:initial !important;}
+.textWrap{padding:30px 0 40px 0 !important;}
+.textWrap h2 {
+    font-size: 27px !important;
+    line-height: 40px !important;
+}
+}
+
+.bookNow {
+    cursor: pointer;
+}
