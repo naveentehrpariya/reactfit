@@ -18,10 +18,11 @@ import thankyou from "./elements/thankyou.png";
 import { UserContext } from './context/UserContext';
 import { addDays } from 'date-fns';
 import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
+import BookingControl from './api/BookingControl';
 
 const HtmlTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
@@ -30,10 +31,10 @@ const HtmlTooltip = styled(({ className, ...props }) => (
         backgroundColor: '#f5f5f9',
         color: 'rgba(0, 0, 0, 0.87)',
         maxWidth: 220,
-        padding:10,
+        padding: 10,
         fontSize: theme.typography.pxToRem(14),
         border: '1px solid #dadde9',
-    },
+    }, 
 }));
 
 
@@ -41,14 +42,15 @@ export default function Booking(props) {
 
     const [open, setOpen] = React.useState(false);
 
-  const handleTooltipClose = () => {
-    setOpen(false);
-  };
+    const handleTooltipClose = () => {
+        setOpen(false);
+    };
 
-  const handleTooltipOpen = () => {
-    setOpen(true);
-  };
-  
+    const handleTooltipOpen = () => {
+        setOpen(true);
+    };
+
+
     const { setFormFill, setDateFill, setFormDone, step1, setStep1, step2, setStep2 } = useContext(UserContext);
     const queryParams = new URLSearchParams(window.location.search)
     const s = queryParams.get("s")
@@ -124,52 +126,105 @@ export default function Booking(props) {
         setDateFill(true);
     }
 
-    const acceptForm = async () => {
-        const response = await fetch('https://mayweatherdeals.com/api/create-prospect', {
-            method: 'POST',
-            body: JSON.stringify({
-                name: formData.name,
-                email: formData.email,
-                phone: formData.phone,
-                gym_location_id: location,
-                gym_staff_id: s ? s : null
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        }).then(res => {
-            return res.json();
-            toast.error("success");
-        }).then((jsonResp) => {
-            if (jsonResp.status) {
-                setStep1(false);
-                setStep2(true);
-                setBookingId(jsonResp.booking);
-                setFormFill(true);
-            } else {
-                if (jsonResp.errors) {
-                    setFormFill(false);
-                    const errors = jsonResp.errors;
-                    Object.keys(errors).map((key) => {
-                        let err = errors[key];
-                        err.map((m, i) => {
-                            toast.error(m);
-                        });
-                    });
-                }
-            }
-        }).catch(error => {
-            toast.error("Server Error");
-            console.log("server error", error);
-        });
-    }
-
     const dateInput = useRef();
     const valueInput = dateInput && dateInput.current && dateInput.current.input && dateInput.current.input.value;
 
     const highlights = [new Date(), addDays(new Date(), 1), addDays(new Date(), 2)];
+    // const handleDateChange = async (d) => {
+    //     setDateFill(false);
+    //     setTime('');
+    //     const day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
+    //     const dt = d.getFullYear() + '-' + months[d.getMonth()] + '-' + day;
+    //     setDate(d.getFullYear() + '-' + months[d.getMonth()] + '-' + day);
+    //     setBookingDate(day + '-' + months[d.getMonth()] + '-' + d.getFullYear());
+    //     setStartDate(d);
+    //     setBookingDate();
+    //     const response = await fetch('https://mayweatherdeals.com/api/get-slots', {
+    //         method: 'POST',
+    //         body: JSON.stringify({ date: dt }),
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json'
+    //         }
+    //     }).then(res => {
+    //         return res.json();
+    //         toast.error("success");
+    //     }).then((jsonResp) => {
+    //         setSlots('');
+    //         if (jsonResp.status) {
+    //             setSlots(jsonResp.slots);
+
+    //         } else {
+    //             console.log(jsonResp.errors);
+    //         }
+    //     }).catch(error => {
+    //         console.log("server error", error);
+    //     });
+    // }
+    const [bookingDone, setBookingDone] = useState(false);
+
+    // async function finalizeBooking() {
+    //     if (time) {
+    //         setLoad(true);
+    //         const response = await fetch(`https://mayweatherdeals.com/api/${bookingId}/finalize-prospect`, {
+    //             method: 'POST',
+    //             body: JSON.stringify({
+    //                 date: date,
+    //                 time: time,
+    //             }),
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Accept': 'application/json'
+    //             }
+    //         }).then(res => {
+    //             return res.json();
+    //             toast.error("success");
+    //         }).then((jsonResp) => {
+    //             if (jsonResp.status) {
+    //                 setLoad(false);
+    //                 setFormDone(true);
+    //                 setBookingDone(true);
+    //                 // console.log("setBookingDone", bookingDone);
+    //                 toast.success("Booking Created !!");
+    //             } else {
+    //                 console.log(jsonResp.errors);
+    //                 setFormDone(false);
+    //             }
+    //         }).catch(error => {
+    //             console.log("server error", error);
+    //         });
+    //     } else {
+    //         toast.error("Please select available time slot.");
+    //     }
+    // }
+
+    const main = new BookingControl;
+    const acceptForm = () => {
+        const main = new BookingControl;
+        const data = new FormData;
+        data.append("name", formData.name);
+        data.append("email", formData.email);
+        data.append("phone", formData.phone);
+        data.append("gym_location_id", formData.location);
+        data.append("gym_staff_id", s ? s : null);
+        const resp = main.createBooking(data);
+        resp.then((res) => {
+            console.log(res);
+        }).catch((error) => {
+            console.log(error);
+            const errors = error.response.data.errors;
+                Object.keys(errors).map((key) => {
+                    console.table('err:', errors[key]);
+                    let err = errors[key];
+                    err.map((m, i) => {
+                        toast.error(m);
+                    });
+                });
+        });
+    }
+
     const handleDateChange = async (d) => {
+        const resp = main.getSlots();
         setDateFill(false);
         setTime('');
         const day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
@@ -178,59 +233,57 @@ export default function Booking(props) {
         setBookingDate(day + '-' + months[d.getMonth()] + '-' + d.getFullYear());
         setStartDate(d);
         setBookingDate();
-        const response = await fetch('https://mayweatherdeals.com/api/get-slots', {
-            method: 'POST',
-            body: JSON.stringify({ date: dt }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        }).then(res => {
-            return res.json();
-            toast.error("success");
-        }).then((jsonResp) => {
+        const data = new FormData;
+        data.append("date", date);
+        resp.then((res) => {
             setSlots('');
-            if (jsonResp.status) {
-                setSlots(jsonResp.slots);
+            if (res.status) {
+                setSlots(res.slots);
 
             } else {
-                console.log(jsonResp.errors);
+                console.log(res.errors);
             }
-        }).catch(error => {
-            console.log("server error", error);
+        }).catch((error) => {
+            const errors = error.response.data.errors;
+            Object.keys(errors).map((key) => {
+                console.table('err:', errors[key]);
+                let err = errors[key];
+                err.map((m, i) => {
+                    toast.error(m);
+                });
+            });
         });
     }
-    const [bookingDone, setBookingDone] = useState(false);
+
 
     async function finalizeBooking() {
         if (time) {
             setLoad(true);
-            const response = await fetch(`https://mayweatherdeals.com/api/${bookingId}/finalize-prospect`, {
-                method: 'POST',
-                body: JSON.stringify({
-                    date: date,
-                    time: time,
-                }),
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            }).then(res => {
-                return res.json();
-                toast.error("success");
-            }).then((jsonResp) => {
-                if (jsonResp.status) {
-                    setLoad(false);
+            const data = new FormData;
+            data.append("date", date);
+            data.append("time", time);
+            const resp = main.finalizeBooking(data, bookingId);
+            resp.then((res) => {
+                console.log(res);
+                if (res.status) {
                     setFormDone(true);
                     setBookingDone(true);
-                    // console.log("setBookingDone", bookingDone);
+                    setLoad(false);
                     toast.success("Booking Created !!");
-                } else {
-                    console.log(jsonResp.errors);
-                    setFormDone(false);
                 }
-            }).catch(error => {
-                console.log("server error", error);
+                else {
+                    setLoad(false);
+                }
+            }).catch((error) => {
+                console.log(error);
+                const errors = error.response.data.errors;
+                Object.keys(errors).map((key) => {
+                    console.table('err:', errors[key]);
+                    let err = errors[key];
+                    err.map((m, i) => {
+                        toast.error(m);
+                    });
+                });
             });
         } else {
             toast.error("Please select available time slot.");
@@ -294,8 +347,6 @@ export default function Booking(props) {
                     <p className='grey-text'>You will opt in to Text Messages for this Booking & Specials. Message & Data Rates may Apply. Reply <span>STOP</span> to opt out. To view our privacy policy click here <a href='https://mayweatherdeals.com/privacy'>Privacy Policy</a></p>
                 </div>
             </> : ''}
-
-
             {step2 ? <>
                 <div className='dateTimePicker position-relative'  >
                     {load ? <Spin /> : ''}
@@ -318,40 +369,25 @@ export default function Booking(props) {
                                     dateFormat="MMMM d, yyyy"
                                     highlightDates={highlights}
                                     onFocus={e => e.target.blur()} />
-
                                 <div className='offerInfo' >
-
-                                <ClickAwayListener onClickAway={handleTooltipClose}>
-            <div>
-              <Tooltip
-                PopperProps={{
-                  disablePortal: true,
-                }}
-                onClose={handleTooltipClose}
-                open={open}
-                disableFocusListener
-                disableHoverListener
-                disableTouchListener
-                title=" Book a free class within the next 72 hours and receive 22% off your members if you sign up on your first visit."
-              >
-                <Button onClick={handleTooltipOpen}><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm.5 17h-1v-9h1v9zm-.5-12c.466 0 .845.378.845.845 0 .466-.379.844-.845.844-.466 0-.845-.378-.845-.844 0-.467.379-.845.845-.845z" /></svg>
-                                            <p>Special Offer!</p></Button>
-              </Tooltip>
-            </div>
-          </ClickAwayListener>
-
-                                    {/* <HtmlTooltip
-                                        title={
-                                            <React.Fragment>
-                                                Book a free class within the next 72 hours and receive 22% off your members if you sign up on your first visit.
-                                            </React.Fragment>
-                                        }
-                                    >
-                                        <Button onClick={handleTooltipOpen}>
-                                            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm.5 17h-1v-9h1v9zm-.5-12c.466 0 .845.378.845.845 0 .466-.379.844-.845.844-.466 0-.845-.378-.845-.844 0-.467.379-.845.845-.845z" /></svg>
-                                            <p>Special Offer!</p>
-                                        </Button>
-                                    </HtmlTooltip> */}
+                                    <ClickAwayListener onClickAway={handleTooltipClose}>
+                                        <div>
+                                            <Tooltip
+                                                PopperProps={{
+                                                    disablePortal: true,
+                                                }}
+                                                onClose={handleTooltipClose}
+                                                open={open}
+                                                disableFocusListener
+                                                disableHoverListener
+                                                disableTouchListener
+                                                title=" Book a free class within the next 72 hours and receive 22% off your members if you sign up on your first visit."
+                                            >
+                                                <Button onClick={handleTooltipOpen}><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm.5 17h-1v-9h1v9zm-.5-12c.466 0 .845.378.845.845 0 .466-.379.844-.845.844-.466 0-.845-.378-.845-.844 0-.467.379-.845.845-.845z" /></svg>
+                                                    <p>Special Offer!</p></Button>
+                                            </Tooltip>
+                                        </div>
+                                    </ClickAwayListener>
                                 </div>
 
                             </div>

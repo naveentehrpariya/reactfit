@@ -15,7 +15,7 @@ body{overflow-x:hidden !important;overflow-y:auto !important;background:#1e2224;
 .grey-text{font-size:14px;font-weight:600;color:#6F767E;}
 .heading{font-size:48px;line-height:1;letter-spacing:-.03em;border-bottom:2px solid #272B30;color:#fff;}
 .border-bottom{border-bottom:2px solid #272B30;margin-bottom:32px;padding-bottom:32px;}
-.formBooking{max-width:400px;}
+.formBooking{max-width:440px; padding:30px 0;}
 .blue-text{margin-bottom:20px;font-size:14px;font-weight:600;line-height:1.71429;position:relative;padding-left:17px;color:#2A85FF;}
 .blue-text:after{content:"";height:8px;width:8px;background:#2A85FF;position:absolute;left:0;top:9px;border-radius:50%;}
 .formBooking .grey-text{margin-top:32px;}
@@ -106,9 +106,8 @@ body div{box-sizing:border-box !important;}
 .offerInfo > button{padding:11px;display: flex;align-items: center;width: auto !important;} 
 .MuiTooltip-popper > div{background:#000 !important;} 
 .MuiTooltip-popper > div{text-transform:capitalize !important;color:#fff !important;border:0 !important;margin-right:20px !important;} 
-.offerInfo svg {position: static; }  
+.offerInfo svg {position: static;}
 
- 
 /* responisve */
 @media( max-width:767px){.sideBarwrap{width:100%;min-width:auto;}
 .pageWrap{width:100% !important;}
